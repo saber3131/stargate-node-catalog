@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Stargate Node Catalog · Offline Component</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="../src/catalog.js"></script>
+  <script defer src="../examples/synthetic-nodes.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header class="topbar"><span class="brand">STARGATE <span>/ MIT COMPONENT</span></span><span class="badge">OFFLINE · SYNTHETIC DATA</span></header>
+    <section class="intro">
+      <p class="eyebrow">NODE CATALOG / 0.1.0</p>
+      <h1>A small window into<br>clearer node selection.</h1>
+      <p class="lead">Filter, sort and validate an invented node directory using one reusable JavaScript module.</p>
+      <p class="boundary">Newly created as an MIT-licensed component for Stargate VPN. This is a standalone node directory demonstration. It provides no VPN connection, subscription, account system or live latency measurement, and claims no prior users or maintenance history.</p>
+    </section>
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading"><h2 id="catalog-title">Explore the synthetic catalog</h2><p id="summary" role="status" aria-live="polite">Loading local sample data…</p></div>
+      <div class="filters">
+        <label class="search">Search invented names<input id="search" type="search" maxlength="48" placeholder="Try Orion" autocomplete="off" spellcheck="false"></label>
+        <label>Region<select id="region"><option value="">All regions</option><option>APAC</option><option>EU</option><option>NA</option></select></label>
+        <label>Protocol label<select id="protocol"><option value="">All labels</option><option value="wireguard">WireGuard</option><option value="openvpn">OpenVPN</option><option value="shadowsocks">Shadowsocks</option></select></label>
+        <label>Sort by<select id="sort"><option value="name">Name</option><option value="latency">Synthetic latency</option><option value="region">Region</option></select></label>
+        <label>Direction<select id="direction"><option value="asc">Ascending</option><option value="desc">Descending</option></select></label>
+        <button id="reset" type="button">Reset filters</button>
+      </div>
+      <p class="hint">All hostnames end in example.invalid. Every latency is invented; unknown latency sorts last. Search accepts letters, numbers, spaces and hyphens.</p>
+      <div class="table-wrap"><table>
+        <caption class="sr-only">Invented nodes matching the current filters</caption>
+        <thead><tr><th scope="col">Name / fictional host</th><th scope="col">Region</th><th scope="col">Protocol label</th><th scope="col">Synthetic latency</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+      <p id="empty" class="empty" hidden>No synthetic nodes match. Try resetting the filters.</p>
+      <noscript><p>This demonstration needs local JavaScript. You can also run the Node CLI described in README.md.</p></noscript>
+    </section>
+    <footer><p>One module. Three uses: library, command line, local demo.</p><p>Only bundled synthetic data is loaded. No network requests or external assets.</p></footer>
+  </main>
+</body>
+</html>

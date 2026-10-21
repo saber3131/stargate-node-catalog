@@ -1,0 +1,14 @@
+{
+  "name": "stargate-node-catalog",
+  "version": "0.1.0",
+  "description": "A newly created, offline synthetic node catalog component for Stargate VPN.",
+  "private": true,
+  "license": "MIT",
+  "main": "src/catalog.js",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/cli.js --sort latency --limit 3",
+    "check": "node --check src/catalog.js && node --check src/cli.js && node --check demo/app.js && node --check examples/synthetic-nodes.js"
+  }
+}
